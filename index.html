@@ -5,17 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Déodorant Naturel — Pierre d'Alun + Zinc</title>
   <style>
-    body { margin: 0; padding: 0; }
+    body { margin: 0; padding: 0; font-family: -apple-system, Arial, sans-serif; }
+    #error-box { display: none; padding: 20px; color: #b00020; background: #fff3f3; white-space: pre-wrap; font-size: 14px; }
   </style>
 </head>
 <body>
+  <div id="error-box"></div>
   <div id="root"></div>
 
-  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/react@18/umd/react.production.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/react-dom@18/umd/react-dom.production.min.js"></script>
 
   <script>
-import { jsxDEV as _jsxDEV } from "react/jsx-dev-runtime";
+    window.addEventListener("error", function (e) {
+      var box = document.getElementById("error-box");
+      box.style.display = "block";
+      box.textContent = "Erreur de chargement : " + (e.message || "inconnue") +
+        (e.filename ? "\n" + e.filename + ":" + e.lineno : "");
+    });
+  </script>
+
+  <script>
 const {
   useState
 } = React;
@@ -520,1132 +530,1029 @@ function DeodorantGuide() {
     id: "comparatif",
     label: "Comparatif marché"
   }];
-  return /*#__PURE__*/_jsxDEV("div", {
+  return /*#__PURE__*/React.createElement("div", {
     style: {
       minHeight: "100vh",
       background: palette.cream,
       fontFamily: "'Georgia', 'Times New Roman', serif",
       color: palette.charcoal
-    },
-    children: [/*#__PURE__*/_jsxDEV("div", {
-      style: {
-        background: palette.sageDark,
-        padding: "28px 20px 24px",
-        position: "relative",
-        overflow: "hidden"
-      },
-      children: [/*#__PURE__*/_jsxDEV("div", {
-        style: {
-          position: "absolute",
-          top: -60,
-          right: -60,
-          width: 240,
-          height: 240,
-          borderRadius: "50%",
-          background: "rgba(255,255,255,0.05)"
-        }
-      }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-        style: {
-          position: "absolute",
-          bottom: -40,
-          left: "40%",
-          width: 160,
-          height: 160,
-          borderRadius: "50%",
-          background: "rgba(255,255,255,0.04)"
-        }
-      }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-        style: {
-          position: "relative"
-        },
-        children: [/*#__PURE__*/_jsxDEV("div", {
-          style: {
-            fontSize: 11,
-            letterSpacing: 4,
-            color: palette.sageLight,
-            textTransform: "uppercase",
-            marginBottom: 12,
-            fontFamily: "'Helvetica Neue', Arial, sans-serif",
-            fontWeight: 500
-          },
-          children: "Formulation cosmétique · Projet personnel"
-        }, void 0, false), /*#__PURE__*/_jsxDEV("h1", {
-          style: {
-            fontSize: 36,
-            fontWeight: 700,
-            color: palette.white,
-            margin: "0 0 10px",
-            lineHeight: 1.15
-          },
-          children: ["Déodorant Naturel", /*#__PURE__*/_jsxDEV("br", {}, void 0, false), /*#__PURE__*/_jsxDEV("span", {
-            style: {
-              color: palette.sageLight,
-              fontSize: 26
-            },
-            children: "Pierre d'Alun + Zinc — Baume Solide"
-          }, void 0, false)]
-        }, void 0, true), /*#__PURE__*/_jsxDEV("p", {
-          style: {
-            color: "rgba(255,255,255,0.75)",
-            fontSize: 14,
-            margin: 0,
-            fontFamily: "'Helvetica Neue', Arial, sans-serif",
-            maxWidth: 540
-          },
-          children: "Analyse scientifique · Dosages optimaux · Procédure complète · Comparatif marché"
-        }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-          style: {
-            display: "flex",
-            gap: 16,
-            marginTop: 20,
-            flexWrap: "wrap"
-          },
-          children: [{
-            val: "8.5/10",
-            label: "Efficacité anti-odeur"
-          }, {
-            val: "Très faibles",
-            label: "Traces vêtements"
-          }, {
-            val: "100g",
-            label: "Format de référence"
-          }, {
-            val: "~10€",
-            label: "Coût de revient"
-          }].map(stat => /*#__PURE__*/_jsxDEV("div", {
-            children: [/*#__PURE__*/_jsxDEV("div", {
-              style: {
-                fontSize: 20,
-                fontWeight: 700,
-                color: palette.gold
-              },
-              children: stat.val
-            }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-              style: {
-                fontSize: 11,
-                color: "rgba(255,255,255,0.6)",
-                fontFamily: "'Helvetica Neue', Arial, sans-serif",
-                letterSpacing: 0.5
-              },
-              children: stat.label
-            }, void 0, false)]
-          }, stat.label, true))
-        }, void 0, false)]
-      }, void 0, true)]
-    }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-      style: {
-        background: palette.white,
-        borderBottom: `2px solid ${palette.stone}`,
-        padding: "10px 16px",
-        display: "grid",
-        gridTemplateColumns: "1fr 1fr",
-        gap: 8
-      },
-      children: sections.map(s => /*#__PURE__*/_jsxDEV("button", {
-        onClick: () => setActiveSection(s.id),
-        style: {
-          padding: "10px 8px",
-          border: `2px solid ${activeSection === s.id ? palette.sageDark : palette.stone}`,
-          borderRadius: 8,
-          background: activeSection === s.id ? palette.sageDark : palette.white,
-          cursor: "pointer",
-          fontSize: 12,
-          fontFamily: "'Helvetica Neue', Arial, sans-serif",
-          fontWeight: activeSection === s.id ? 700 : 400,
-          color: activeSection === s.id ? palette.white : palette.charcoal,
-          transition: "all 0.15s",
-          textAlign: "center",
-          lineHeight: 1.3
-        },
-        children: s.label
-      }, s.id, false))
-    }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-      style: {
-        padding: "20px 16px",
-        maxWidth: 900,
-        margin: "0 auto"
-      },
-      children: [activeSection === "formule" && /*#__PURE__*/_jsxDEV("div", {
-        children: [/*#__PURE__*/_jsxDEV("div", {
-          style: {
-            display: "flex",
-            gap: 8,
-            marginBottom: 24,
-            flexWrap: "wrap"
-          },
-          children: formules.map(f => /*#__PURE__*/_jsxDEV("button", {
-            onClick: () => setActiveFormule(f.id),
-            style: {
-              padding: "10px 20px",
-              borderRadius: 6,
-              border: `2px solid ${activeFormule === f.id ? f.color : palette.stone}`,
-              background: activeFormule === f.id ? f.color : palette.white,
-              color: activeFormule === f.id ? palette.white : palette.charcoal,
-              cursor: "pointer",
-              fontSize: 13,
-              fontFamily: "'Helvetica Neue', Arial, sans-serif",
-              fontWeight: 600,
-              transition: "all 0.15s"
-            },
-            children: f.label
-          }, f.id, false))
-        }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-          style: {
-            background: palette.white,
-            borderRadius: 12,
-            border: `1px solid ${palette.stone}`,
-            overflow: "hidden",
-            marginBottom: 28
-          },
-          children: [/*#__PURE__*/_jsxDEV("div", {
-            style: {
-              background: formule.color,
-              padding: "16px 20px",
-              display: "flex",
-              flexDirection: "column",
-              gap: 12
-            },
-            children: [/*#__PURE__*/_jsxDEV("div", {
-              children: [/*#__PURE__*/_jsxDEV("div", {
-                style: {
-                  color: palette.white,
-                  fontSize: 18,
-                  fontWeight: 700
-                },
-                children: formule.label
-              }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-                style: {
-                  color: "rgba(255,255,255,0.8)",
-                  fontSize: 13,
-                  fontFamily: "'Helvetica Neue', Arial, sans-serif"
-                },
-                children: formule.subtitle
-              }, void 0, false)]
-            }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-              style: {
-                display: "flex",
-                gap: 16,
-                flexWrap: "wrap"
-              },
-              children: [{
-                val: `${formule.score}/10`,
-                label: "Anti-odeur"
-              }, {
-                val: formule.traces,
-                label: "Traces"
-              }, {
-                val: formule.cout,
-                label: "Coût/100g"
-              }].map(s => /*#__PURE__*/_jsxDEV("div", {
-                style: {
-                  textAlign: "center"
-                },
-                children: [/*#__PURE__*/_jsxDEV("div", {
-                  style: {
-                    color: palette.white,
-                    fontSize: 16,
-                    fontWeight: 700
-                  },
-                  children: s.val
-                }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-                  style: {
-                    color: "rgba(255,255,255,0.7)",
-                    fontSize: 11,
-                    fontFamily: "'Helvetica Neue', Arial, sans-serif"
-                  },
-                  children: s.label
-                }, void 0, false)]
-              }, s.label, true))
-            }, void 0, false)]
-          }, void 0, true), (formule.id === "standard" || formule.id === "menthe" || formule.id === "citrus") && /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              padding: "8px 0"
-            },
-            children: [formule.comparaison && /*#__PURE__*/_jsxDEV("div", {
-              style: {
-                padding: "16px 20px",
-                borderBottom: `1px solid ${palette.stone}`,
-                background: formule.id === "citrus" ? "#FEF3EA" : "#F0FAF6"
-              },
-              children: [/*#__PURE__*/_jsxDEV("div", {
-                style: {
-                  fontSize: 12,
-                  fontWeight: 700,
-                  color: formule.id === "citrus" ? "#C8621A" : "#3A9E80",
-                  textTransform: "uppercase",
-                  letterSpacing: 0.5,
-                  marginBottom: 10,
-                  fontFamily: "'Helvetica Neue', Arial, sans-serif"
-                },
-                children: "Gains vs formule d'origine"
-              }, void 0, false), formule.comparaison.map((row, i) => /*#__PURE__*/_jsxDEV("div", {
-                style: {
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  padding: "5px 0",
-                  borderBottom: i < formule.comparaison.length - 1 ? `1px solid #D0EDE5` : "none"
-                },
-                children: [/*#__PURE__*/_jsxDEV("div", {
-                  style: {
-                    fontSize: 12,
-                    fontFamily: "'Helvetica Neue', Arial, sans-serif",
-                    color: palette.charcoal,
-                    fontWeight: 600,
-                    minWidth: 120
-                  },
-                  children: row.critere
-                }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-                  style: {
-                    display: "flex",
-                    gap: 8,
-                    alignItems: "center",
-                    flexWrap: "wrap"
-                  },
-                  children: [/*#__PURE__*/_jsxDEV("span", {
-                    style: {
-                      fontSize: 11,
-                      color: "#999",
-                      fontFamily: "'Helvetica Neue', Arial, sans-serif",
-                      textDecoration: "line-through"
-                    },
-                    children: row.original
-                  }, void 0, false), /*#__PURE__*/_jsxDEV("span", {
-                    style: {
-                      fontSize: 11,
-                      color: "#fff",
-                      background: formule.id === "citrus" ? "#C8621A" : "#3A9E80",
-                      borderRadius: 4,
-                      padding: "1px 7px",
-                      fontFamily: "'Helvetica Neue', Arial, sans-serif",
-                      fontWeight: 600
-                    },
-                    children: row.optimise
-                  }, void 0, false)]
-                }, void 0, true)]
-              }, i, true))]
-            }, void 0, true), formule.details.map((ing, i) => /*#__PURE__*/_jsxDEV("div", {
-              style: {
-                padding: "16px 24px",
-                borderBottom: i < formule.details.length - 1 ? `1px solid ${palette.stone}` : "none",
-                display: "grid",
-                gridTemplateColumns: "1fr",
-                gap: 6,
-                alignItems: "start"
-              },
-              children: [/*#__PURE__*/_jsxDEV("div", {
-                children: /*#__PURE__*/_jsxDEV("div", {
-                  style: {
-                    fontSize: 14,
-                    fontWeight: 600,
-                    color: palette.charcoal,
-                    display: "flex",
-                    alignItems: "center",
-                    gap: 8
-                  },
-                  children: [/*#__PURE__*/_jsxDEV("span", {
-                    style: {
-                      width: 10,
-                      height: 10,
-                      borderRadius: "50%",
-                      background: ing.color,
-                      flexShrink: 0,
-                      border: `1px solid rgba(0,0,0,0.1)`
-                    }
-                  }, void 0, false), ing.name]
-                }, void 0, true)
-              }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-                children: /*#__PURE__*/_jsxDEV("span", {
-                  style: {
-                    background: ing.color,
-                    color: palette.white,
-                    borderRadius: 4,
-                    padding: "2px 8px",
-                    fontSize: 13,
-                    fontWeight: 700,
-                    fontFamily: "'Helvetica Neue', Arial, sans-serif"
-                  },
-                  children: ing.quantite
-                }, void 0, false)
-              }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-                style: {
-                  fontSize: 11,
-                  color: palette.brownLight,
-                  fontFamily: "'Helvetica Neue', Arial, sans-serif",
-                  textTransform: "uppercase",
-                  letterSpacing: 0.5,
-                  paddingTop: 3,
-                  fontWeight: 600
-                },
-                children: ing.role
-              }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-                style: {
-                  fontSize: 12,
-                  color: "#555",
-                  fontFamily: "'Helvetica Neue', Arial, sans-serif",
-                  lineHeight: 1.5
-                },
-                children: ing.justification
-              }, void 0, false)]
-            }, i, true))]
-          }, void 0, true), formule.specifics && /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              padding: "20px 24px"
-            },
-            children: [/*#__PURE__*/_jsxDEV("div", {
-              style: {
-                fontSize: 12,
-                color: "#666",
-                fontFamily: "'Helvetica Neue', Arial, sans-serif",
-                marginBottom: 8,
-                fontWeight: 600,
-                textTransform: "uppercase",
-                letterSpacing: 0.5
-              },
-              children: "Modifications par rapport à la formule standard :"
-            }, void 0, false), formule.specifics.map((s, i) => /*#__PURE__*/_jsxDEV("div", {
-              style: {
-                display: "flex",
-                gap: 10,
-                marginBottom: 10,
-                alignItems: "flex-start"
-              },
-              children: [/*#__PURE__*/_jsxDEV("span", {
-                style: {
-                  width: 20,
-                  height: 20,
-                  borderRadius: "50%",
-                  background: formule.color,
-                  color: palette.white,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontSize: 11,
-                  flexShrink: 0,
-                  fontFamily: "'Helvetica Neue', Arial, sans-serif",
-                  fontWeight: 700,
-                  marginTop: 1
-                },
-                children: i + 1
-              }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-                style: {
-                  fontSize: 13,
-                  color: palette.charcoal,
-                  fontFamily: "'Helvetica Neue', Arial, sans-serif",
-                  lineHeight: 1.5
-                },
-                children: s
-              }, void 0, false)]
-            }, i, true))]
-          }, void 0, true)]
-        }, void 0, true), (formule.id === "standard" || formule.id === "menthe" || formule.id === "citrus") && /*#__PURE__*/_jsxDEV("div", {
-          style: {
-            background: palette.white,
-            borderRadius: 12,
-            border: `1px solid ${palette.stone}`,
-            padding: 24
-          },
-          children: [/*#__PURE__*/_jsxDEV("div", {
-            style: {
-              fontSize: 14,
-              fontWeight: 700,
-              marginBottom: 16,
-              color: formule.id === "menthe" ? "#3A9E80" : formule.id === "citrus" ? "#C8621A" : palette.sageDark
-            },
-            children: "Composition par phase"
-          }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              display: "flex",
-              gap: 12,
-              flexWrap: "wrap"
-            },
-            children: (formule.id === "menthe" ? [{
-              label: "Phase grasse (karité + coco)",
-              pct: 42,
-              color: palette.gold
-            }, {
-              label: "Cires (abeille + carnauba)",
-              pct: 10,
-              color: palette.brown
-            }, {
-              label: "Actifs anti-odeur (alun + zinc)",
-              pct: 23,
-              color: palette.blue
-            }, {
-              label: "Absorbants (arrow-root + amidon)",
-              pct: 19,
-              color: "#5BB8A0"
-            }, {
-              label: "HE fraîcheur (~1%)",
-              pct: 6,
-              color: "#3A9E80"
-            }] : formule.id === "citrus" ? [{
-              label: "Phase grasse (karité + cacao + coco)",
-              pct: 50,
-              color: "#8B5E3C"
-            }, {
-              label: "Cires (abeille + carnauba)",
-              pct: 10,
-              color: palette.brown
-            }, {
-              label: "Actifs anti-odeur (alun + zinc)",
-              pct: 25,
-              color: palette.blue
-            }, {
-              label: "Absorbants (arrow-root + amidon)",
-              pct: 15,
-              color: "#A8C840"
-            }, {
-              label: "HE citrus (~1%)",
-              pct: 5,
-              color: "#C8621A"
-            }] : [{
-              label: "Phase grasse (karité + coco)",
-              pct: 40,
-              color: palette.gold
-            }, {
-              label: "Cires (abeille + carnauba)",
-              pct: 10,
-              color: palette.brown
-            }, {
-              label: "Actifs anti-odeur (alun + zinc)",
-              pct: 25,
-              color: palette.blue
-            }, {
-              label: "Absorbants (arrow-root + amidon)",
-              pct: 20,
-              color: palette.sage
-            }, {
-              label: "HE (~1%)",
-              pct: 5,
-              color: palette.sageDark
-            }]).map(phase => /*#__PURE__*/_jsxDEV("div", {
-              style: {
-                flex: "1 1 140px"
-              },
-              children: [/*#__PURE__*/_jsxDEV("div", {
-                style: {
-                  height: 6,
-                  borderRadius: 3,
-                  background: palette.stone,
-                  marginBottom: 6,
-                  overflow: "hidden"
-                },
-                children: /*#__PURE__*/_jsxDEV("div", {
-                  style: {
-                    height: "100%",
-                    width: `${phase.pct * 2}%`,
-                    background: phase.color,
-                    borderRadius: 3
-                  }
-                }, void 0, false)
-              }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-                style: {
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center"
-                },
-                children: [/*#__PURE__*/_jsxDEV("div", {
-                  style: {
-                    fontSize: 11,
-                    color: "#666",
-                    fontFamily: "'Helvetica Neue', Arial, sans-serif"
-                  },
-                  children: phase.label
-                }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-                  style: {
-                    fontSize: 12,
-                    fontWeight: 700,
-                    color: phase.color,
-                    fontFamily: "'Helvetica Neue', Arial, sans-serif"
-                  },
-                  children: [phase.pct, "%"]
-                }, void 0, true)]
-              }, void 0, true)]
-            }, phase.label, true))
-          }, void 0, false)]
-        }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-          style: {
-            background: "#FFF8E7",
-            border: `1px solid ${palette.gold}`,
-            borderRadius: 8,
-            padding: "14px 18px",
-            marginTop: 20,
-            display: "flex",
-            gap: 12
-          },
-          children: [/*#__PURE__*/_jsxDEV("span", {
-            style: {
-              fontSize: 18
-            },
-            children: "⚠️"
-          }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              fontSize: 13,
-              fontFamily: "'Helvetica Neue', Arial, sans-serif",
-              lineHeight: 1.6,
-              color: "#6B4C00"
-            },
-            children: [/*#__PURE__*/_jsxDEV("strong", {
-              children: "Bicarbonate de soude : ingrédient controversé."
-            }, void 0, false), " Efficace contre les odeurs (neutralisation acides) mais pH très alcalin (pH 9) pouvant provoquer irritations, brûlures et eczéma sous-axillaire chez les peaux sensibles ou post-épilation. La formule proposée le remplace avantageusement par l'oxyde de zinc (pH neutre, même action neutralisante, tolérance supérieure). Ne retenir le bicarbonate que dans la version premium en quantité limitée (3%) et sur peaux testées."]
-          }, void 0, true)]
-        }, void 0, true)]
-      }, void 0, true), activeSection === "interactions" && /*#__PURE__*/_jsxDEV("div", {
-        children: [/*#__PURE__*/_jsxDEV("div", {
-          style: {
-            fontSize: 13,
-            color: "#666",
-            fontFamily: "'Helvetica Neue', Arial, sans-serif",
-            marginBottom: 24,
-            lineHeight: 1.6
-          },
-          children: "Comprendre les interactions entre les ingrédients permet d'optimiser les dosages et d'anticiper les comportements en usage. Voici l'analyse scientifique des 5 mécanismes clés de cette formule."
-        }, void 0, false), interactions.map((inter, i) => /*#__PURE__*/_jsxDEV("div", {
-          style: {
-            background: palette.white,
-            borderRadius: 10,
-            border: `1px solid ${palette.stone}`,
-            borderLeft: `4px solid ${inter.color}`,
-            padding: "20px 24px",
-            marginBottom: 16
-          },
-          children: [/*#__PURE__*/_jsxDEV("div", {
-            style: {
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "flex-start",
-              marginBottom: 10
-            },
-            children: [/*#__PURE__*/_jsxDEV("div", {
-              style: {
-                fontSize: 15,
-                fontWeight: 700,
-                color: palette.charcoal
-              },
-              children: inter.titre
-            }, void 0, false), /*#__PURE__*/_jsxDEV("span", {
-              style: {
-                background: inter.color,
-                color: palette.white,
-                borderRadius: 20,
-                padding: "2px 10px",
-                fontSize: 11,
-                fontFamily: "'Helvetica Neue', Arial, sans-serif",
-                fontWeight: 600,
-                whiteSpace: "nowrap",
-                marginLeft: 12
-              },
-              children: inter.type
-            }, void 0, false)]
-          }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              fontSize: 13,
-              fontFamily: "'Helvetica Neue', Arial, sans-serif",
-              lineHeight: 1.7,
-              color: "#444"
-            },
-            children: inter.detail
-          }, void 0, false)]
-        }, i, true)), /*#__PURE__*/_jsxDEV("div", {
-          style: {
-            background: palette.white,
-            borderRadius: 10,
-            border: `1px solid ${palette.stone}`,
-            padding: 24,
-            marginTop: 24
-          },
-          children: [/*#__PURE__*/_jsxDEV("div", {
-            style: {
-              fontSize: 15,
-              fontWeight: 700,
-              color: palette.sageDark,
-              marginBottom: 16
-            },
-            children: "Verdict sur les ingrédients évalués"
-          }, void 0, false), [{
-            ing: "Cire de soja",
-            verdict: "Non retenu",
-            raison: "Point de fusion trop bas (52–54°C). Formule instable en été. Moins efficace que la cire d'abeille pour structurer. Intéressante uniquement pour version vegan légère.",
-            color: palette.red
-          }, {
-            ing: "Bicarbonate de soude",
-            verdict: "Usage limité",
-            raison: "Efficace mais pH 9 irritant. Remplacé par l'oxyde de zinc (même action, tolérance bien supérieure). Utilisé à 3% max en version premium sur peaux testées seulement.",
-            color: palette.orange
-          }, {
-            ing: "Arrow-root",
-            verdict: "Retenu — prioritaire",
-            raison: "Meilleur absorbant de la liste : grain fin, absorbe les lipides, réduit les traces. Premier choix parmi les amidons.",
-            color: palette.green
-          }, {
-            ing: "Amidon de riz",
-            verdict: "Retenu — complémentaire",
-            raison: "Grain très fin, absorbe l'eau. Effet poudre de riz agréable. Complète l'arrow-root.",
-            color: palette.green
-          }, {
-            ing: "Amidon de maïs",
-            verdict: "Non retenu",
-            raison: "Grain plus grossier que l'arrow-root. Moindre efficacité absorbante, risque de grains perceptibles à l'application. Remplacé avantageusement par l'arrow-root.",
-            color: palette.orange
-          }, {
-            ing: "Cire d'abeille",
-            verdict: "Retenu — indispensable",
-            raison: "Structurant de base irremplaçable. Stabilité thermique, propriétés filmogènes. Aucun substitut à performance équivalente dans cette formule.",
-            color: palette.green
-          }, {
-            ing: "Cire de carnauba",
-            verdict: "Retenu — à 2% seulement",
-            raison: "Durcisseur haute température. Augmente le point de ramollissement de la formule de +8–10°C. Ne pas dépasser 2% sous peine de texture cassante.",
-            color: palette.green
-          }, {
-            ing: "Oxyde de zinc non nano",
-            verdict: "Retenu — actif clé",
-            raison: "Synergie majeure avec la pierre d'alun. Anti-odeur par neutralisation chimique + antibactérien. Tolérance excellente. Ingrédient le plus performant de la liste.",
-            color: palette.green
-          }].map((v, i) => /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              display: "flex",
-              flexDirection: "column",
-              gap: 6,
-              padding: "12px 0",
-              borderBottom: i < 7 ? `1px solid ${palette.stone}` : "none",
-              alignItems: "flex-start"
-            },
-            children: [/*#__PURE__*/_jsxDEV("div", {
-              style: {
-                fontSize: 13,
-                fontWeight: 600,
-                color: palette.charcoal,
-                fontFamily: "'Helvetica Neue', Arial, sans-serif"
-              },
-              children: v.ing
-            }, void 0, false), /*#__PURE__*/_jsxDEV("span", {
-              style: {
-                background: v.color,
-                color: palette.white,
-                borderRadius: 4,
-                padding: "2px 8px",
-                fontSize: 11,
-                fontFamily: "'Helvetica Neue', Arial, sans-serif",
-                fontWeight: 600,
-                alignSelf: "flex-start",
-                display: "inline-block"
-              },
-              children: v.verdict
-            }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-              style: {
-                fontSize: 12,
-                color: "#555",
-                fontFamily: "'Helvetica Neue', Arial, sans-serif",
-                lineHeight: 1.5
-              },
-              children: v.raison
-            }, void 0, false)]
-          }, i, true))]
-        }, void 0, true)]
-      }, void 0, true), activeSection === "fabrication" && /*#__PURE__*/_jsxDEV("div", {
-        children: [/*#__PURE__*/_jsxDEV("div", {
-          style: {
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: 16,
-            marginBottom: 28
-          },
-          children: [{
-            label: "Temps total",
-            val: "45–60 min + 4h refroidissement"
-          }, {
-            label: "Matériel",
-            val: "Bain-marie, fouet, bols pyrex, pots verre"
-          }, {
-            label: "Difficulté",
-            val: "Intermédiaire"
-          }, {
-            label: "Stérilisation",
-            val: "Alcool 70° sur tout le matériel"
-          }].map(info => /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              background: palette.white,
-              borderRadius: 8,
-              border: `1px solid ${palette.stone}`,
-              padding: "14px 18px",
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center"
-            },
-            children: [/*#__PURE__*/_jsxDEV("div", {
-              style: {
-                fontSize: 12,
-                color: "#888",
-                fontFamily: "'Helvetica Neue', Arial, sans-serif"
-              },
-              children: info.label
-            }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-              style: {
-                fontSize: 13,
-                fontWeight: 600,
-                color: palette.charcoal,
-                fontFamily: "'Helvetica Neue', Arial, sans-serif"
-              },
-              children: info.val
-            }, void 0, false)]
-          }, info.label, true))
-        }, void 0, false), etapes.map((etape, i) => /*#__PURE__*/_jsxDEV("div", {
-          style: {
-            display: "flex",
-            gap: 20,
-            marginBottom: 16,
-            position: "relative"
-          },
-          children: [i < etapes.length - 1 && /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              position: "absolute",
-              left: 23,
-              top: 52,
-              bottom: -16,
-              width: 2,
-              background: palette.stone
-            }
-          }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              width: 48,
-              height: 48,
-              borderRadius: "50%",
-              background: etape.critical ? palette.sageDark : palette.stone,
-              color: etape.critical ? palette.white : palette.charcoal,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontSize: 14,
-              fontWeight: 700,
-              fontFamily: "'Helvetica Neue', Arial, sans-serif",
-              flexShrink: 0,
-              zIndex: 1,
-              border: etape.critical ? `2px solid ${palette.sage}` : "none"
-            },
-            children: etape.num
-          }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              flex: 1,
-              background: palette.white,
-              borderRadius: 10,
-              border: `1px solid ${etape.critical ? palette.sage : palette.stone}`,
-              padding: "16px 20px"
-            },
-            children: [/*#__PURE__*/_jsxDEV("div", {
-              style: {
-                display: "flex",
-                justifyContent: "space-between",
-                marginBottom: 8
-              },
-              children: [/*#__PURE__*/_jsxDEV("div", {
-                style: {
-                  fontSize: 14,
-                  fontWeight: 700,
-                  color: etape.critical ? palette.sageDark : palette.charcoal
-                },
-                children: [etape.titre, etape.critical && /*#__PURE__*/_jsxDEV("span", {
-                  style: {
-                    marginLeft: 10,
-                    fontSize: 10,
-                    background: palette.sageDark,
-                    color: palette.white,
-                    borderRadius: 3,
-                    padding: "1px 6px",
-                    fontFamily: "'Helvetica Neue', Arial, sans-serif",
-                    fontWeight: 600,
-                    letterSpacing: 0.5,
-                    verticalAlign: "middle"
-                  },
-                  children: "ÉTAPE CRITIQUE"
-                }, void 0, false)]
-              }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-                style: {
-                  fontSize: 12,
-                  color: "#888",
-                  fontFamily: "'Helvetica Neue', Arial, sans-serif"
-                },
-                children: ["⏱ ", etape.temps]
-              }, void 0, true)]
-            }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-              style: {
-                fontSize: 13,
-                fontFamily: "'Helvetica Neue', Arial, sans-serif",
-                lineHeight: 1.7,
-                color: "#444"
-              },
-              children: etape.detail
-            }, void 0, false)]
-          }, void 0, true)]
-        }, i, true)), /*#__PURE__*/_jsxDEV("div", {
-          style: {
-            background: palette.white,
-            borderRadius: 10,
-            border: `1px solid ${palette.stone}`,
-            padding: 24,
-            marginTop: 8
-          },
-          children: [/*#__PURE__*/_jsxDEV("div", {
-            style: {
-              fontSize: 15,
-              fontWeight: 700,
-              color: palette.sageDark,
-              marginBottom: 16
-            },
-            children: "Évaluation du risque de traces sur vêtements"
-          }, void 0, false), [{
-            scenario: "Vêtements blancs, application sèche",
-            risque: "Très faible",
-            color: palette.green,
-            detail: "Arrow-root + amidon absorbent l'huile libre. Laisser 3 min avant habillage."
-          }, {
-            scenario: "Vêtements foncés (coton)",
-            risque: "Faible",
-            color: "#7AAB7A",
-            detail: "Possible légère trace blanche due à l'alun si quantité trop importante. Appliquer en couche fine."
-          }, {
-            scenario: "Effort physique intense, transpiration abondante",
-            risque: "Modéré",
-            color: palette.orange,
-            detail: "La transpiration peut remobiliser les corps gras. L'arrow-root tampon ce phénomène jusqu'à un certain point."
-          }, {
-            scenario: "Soie, satin, matières délicates",
-            risque: "Modéré à élevé",
-            color: palette.red,
-            detail: "Ces matières absorbent les huiles même en infime quantité. Attendre 5 min minimum avant habillage."
-          }].map((r, i) => /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              display: "flex",
-              flexDirection: "column",
-              gap: 6,
-              padding: "12px 0",
-              borderBottom: i < 3 ? `1px solid ${palette.stone}` : "none",
-              alignItems: "flex-start"
-            },
-            children: [/*#__PURE__*/_jsxDEV("div", {
-              style: {
-                fontSize: 13,
-                fontFamily: "'Helvetica Neue', Arial, sans-serif",
-                color: palette.charcoal
-              },
-              children: r.scenario
-            }, void 0, false), /*#__PURE__*/_jsxDEV("span", {
-              style: {
-                background: r.color,
-                color: palette.white,
-                borderRadius: 4,
-                padding: "2px 8px",
-                fontSize: 11,
-                fontFamily: "'Helvetica Neue', Arial, sans-serif",
-                fontWeight: 600,
-                display: "inline-block"
-              },
-              children: r.risque
-            }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-              style: {
-                fontSize: 12,
-                color: "#666",
-                fontFamily: "'Helvetica Neue', Arial, sans-serif",
-                lineHeight: 1.5
-              },
-              children: r.detail
-            }, void 0, false)]
-          }, i, true))]
-        }, void 0, true)]
-      }, void 0, true), activeSection === "comparatif" && /*#__PURE__*/_jsxDEV("div", {
-        children: [/*#__PURE__*/_jsxDEV("div", {
-          style: {
-            fontSize: 13,
-            color: "#666",
-            fontFamily: "'Helvetica Neue', Arial, sans-serif",
-            marginBottom: 24,
-            lineHeight: 1.6
-          },
-          children: "Positionnement de la formule artisanale face aux meilleures marques de déodorants naturels du marché."
-        }, void 0, false), comparatifs.map((m, i) => /*#__PURE__*/_jsxDEV("div", {
-          style: {
-            background: m.marque.includes("Ta formule") ? "#F0F7F3" : palette.white,
-            borderRadius: 10,
-            border: `1px solid ${m.marque.includes("Ta formule") ? palette.sage : palette.stone}`,
-            padding: "20px 24px",
-            marginBottom: 14,
-            borderLeft: `4px solid ${m.couleur}`
-          },
-          children: [/*#__PURE__*/_jsxDEV("div", {
-            style: {
-              display: "flex",
-              flexDirection: "column",
-              gap: 10,
-              marginBottom: 12
-            },
-            children: [/*#__PURE__*/_jsxDEV("div", {
-              children: [/*#__PURE__*/_jsxDEV("div", {
-                style: {
-                  fontSize: 15,
-                  fontWeight: 700,
-                  color: palette.charcoal,
-                  marginBottom: 2
-                },
-                children: [m.marque.includes("Ta formule") ? "⭐ " : "", m.marque]
-              }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-                style: {
-                  fontSize: 12,
-                  color: "#888",
-                  fontFamily: "'Helvetica Neue', Arial, sans-serif"
-                },
-                children: ["Actifs : ", m.actifs]
-              }, void 0, true)]
-            }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-              style: {
-                display: "flex",
-                gap: 20,
-                alignItems: "center"
-              },
-              children: [/*#__PURE__*/_jsxDEV("div", {
-                style: {
-                  textAlign: "left"
-                },
-                children: [/*#__PURE__*/_jsxDEV("div", {
-                  style: {
-                    fontSize: 22,
-                    fontWeight: 700,
-                    color: m.couleur
-                  },
-                  children: [m.score, /*#__PURE__*/_jsxDEV("span", {
-                    style: {
-                      fontSize: 13,
-                      color: "#aaa"
-                    },
-                    children: "/10"
-                  }, void 0, false)]
-                }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-                  style: {
-                    fontSize: 11,
-                    color: "#aaa",
-                    fontFamily: "'Helvetica Neue', Arial, sans-serif"
-                  },
-                  children: "Efficacité"
-                }, void 0, false)]
-              }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-                style: {
-                  textAlign: "left"
-                },
-                children: [/*#__PURE__*/_jsxDEV("div", {
-                  style: {
-                    fontSize: 15,
-                    fontWeight: 700,
-                    color: palette.charcoal,
-                    fontFamily: "'Helvetica Neue', Arial, sans-serif"
-                  },
-                  children: m.prix
-                }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-                  style: {
-                    fontSize: 11,
-                    color: "#aaa",
-                    fontFamily: "'Helvetica Neue', Arial, sans-serif"
-                  },
-                  children: "Coût"
-                }, void 0, false)]
-              }, void 0, true)]
-            }, void 0, true)]
-          }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              height: 6,
-              background: palette.stone,
-              borderRadius: 3,
-              marginBottom: 12,
-              overflow: "hidden"
-            },
-            children: /*#__PURE__*/_jsxDEV("div", {
-              style: {
-                height: "100%",
-                width: `${m.score * 10}%`,
-                background: m.couleur,
-                borderRadius: 3,
-                transition: "width 0.5s ease"
-              }
-            }, void 0, false)
-          }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              fontSize: 13,
-              fontFamily: "'Helvetica Neue', Arial, sans-serif",
-              color: "#555",
-              lineHeight: 1.5
-            },
-            children: m.points
-          }, void 0, false)]
-        }, i, true)), /*#__PURE__*/_jsxDEV("div", {
-          style: {
-            background: palette.sageDark,
-            borderRadius: 10,
-            padding: 24,
-            marginTop: 8,
-            color: palette.white
-          },
-          children: [/*#__PURE__*/_jsxDEV("div", {
-            style: {
-              fontSize: 15,
-              fontWeight: 700,
-              marginBottom: 12
-            },
-            children: "Conclusion de l'analyse"
-          }, void 0, false), ["La formule artisanale Zinc + Alun surpasse les références commerciales en score anti-odeur (8.5 vs 7–8/10) tout en éliminant le bicarbonate, principale source d'irritations dans les marques concurrentes.", "Le coût de revient (~10€/100g matières premières) reste inférieur aux prix retail tout en livrant un produit de qualité supérieure.", "L'avantage principal : la double synergie alun + zinc non nano n'est pas exploitée par les marques commerciales grand public — c'est le véritable différenciateur de cette formule.", "Limite : durée de conservation plus courte que l'industriel (3 mois vs 12–24 mois) et nécessité d'une rigueur fabrication pour éviter la contamination."].map((point, i) => /*#__PURE__*/_jsxDEV("div", {
-            style: {
-              display: "flex",
-              gap: 10,
-              marginBottom: 10,
-              alignItems: "flex-start"
-            },
-            children: [/*#__PURE__*/_jsxDEV("span", {
-              style: {
-                color: palette.sageLight,
-                flexShrink: 0,
-                marginTop: 2
-              },
-              children: "→"
-            }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-              style: {
-                fontSize: 13,
-                fontFamily: "'Helvetica Neue', Arial, sans-serif",
-                lineHeight: 1.6,
-                color: "rgba(255,255,255,0.85)"
-              },
-              children: point
-            }, void 0, false)]
-          }, i, true))]
-        }, void 0, true)]
-      }, void 0, true)]
-    }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-      style: {
-        borderTop: `1px solid ${palette.stone}`,
-        padding: "16px 16px",
-        display: "flex",
-        flexDirection: "column",
-        gap: 6,
-        alignItems: "flex-start"
-      },
-      children: [/*#__PURE__*/_jsxDEV("div", {
-        style: {
-          fontSize: 11,
-          color: "#999",
-          fontFamily: "'Helvetica Neue', Arial, sans-serif"
-        },
-        children: "Formulation artisanale — Usage personnel — Respecter les BPF (Bonnes Pratiques de Fabrication)"
-      }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-        style: {
-          fontSize: 11,
-          color: "#999",
-          fontFamily: "'Helvetica Neue', Arial, sans-serif"
-        },
-        children: "Tester sur petit lot (10g) avant production — Patch test recommandé"
-      }, void 0, false)]
-    }, void 0, true)]
-  }, void 0, true);
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: palette.sageDark,
+      padding: "28px 20px 24px",
+      position: "relative",
+      overflow: "hidden"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: "absolute",
+      top: -60,
+      right: -60,
+      width: 240,
+      height: 240,
+      borderRadius: "50%",
+      background: "rgba(255,255,255,0.05)"
+    }
+  }), /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: "absolute",
+      bottom: -40,
+      left: "40%",
+      width: 160,
+      height: 160,
+      borderRadius: "50%",
+      background: "rgba(255,255,255,0.04)"
+    }
+  }), /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: "relative"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 11,
+      letterSpacing: 4,
+      color: palette.sageLight,
+      textTransform: "uppercase",
+      marginBottom: 12,
+      fontFamily: "'Helvetica Neue', Arial, sans-serif",
+      fontWeight: 500
+    }
+  }, "Formulation cosmétique · Projet personnel"), /*#__PURE__*/React.createElement("h1", {
+    style: {
+      fontSize: 36,
+      fontWeight: 700,
+      color: palette.white,
+      margin: "0 0 10px",
+      lineHeight: 1.15
+    }
+  }, "Déodorant Naturel", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: palette.sageLight,
+      fontSize: 26
+    }
+  }, "Pierre d'Alun + Zinc — Baume Solide")), /*#__PURE__*/React.createElement("p", {
+    style: {
+      color: "rgba(255,255,255,0.75)",
+      fontSize: 14,
+      margin: 0,
+      fontFamily: "'Helvetica Neue', Arial, sans-serif",
+      maxWidth: 540
+    }
+  }, "Analyse scientifique · Dosages optimaux · Procédure complète · Comparatif marché"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 16,
+      marginTop: 20,
+      flexWrap: "wrap"
+    }
+  }, [{
+    val: "8.5/10",
+    label: "Efficacité anti-odeur"
+  }, {
+    val: "Très faibles",
+    label: "Traces vêtements"
+  }, {
+    val: "100g",
+    label: "Format de référence"
+  }, {
+    val: "~10€",
+    label: "Coût de revient"
+  }].map(stat => /*#__PURE__*/React.createElement("div", {
+    key: stat.label
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 20,
+      fontWeight: 700,
+      color: palette.gold
+    }
+  }, stat.val), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 11,
+      color: "rgba(255,255,255,0.6)",
+      fontFamily: "'Helvetica Neue', Arial, sans-serif",
+      letterSpacing: 0.5
+    }
+  }, stat.label)))))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: palette.white,
+      borderBottom: `2px solid ${palette.stone}`,
+      padding: "10px 16px",
+      display: "grid",
+      gridTemplateColumns: "1fr 1fr",
+      gap: 8
+    }
+  }, sections.map(s => /*#__PURE__*/React.createElement("button", {
+    key: s.id,
+    onClick: () => setActiveSection(s.id),
+    style: {
+      padding: "10px 8px",
+      border: `2px solid ${activeSection === s.id ? palette.sageDark : palette.stone}`,
+      borderRadius: 8,
+      background: activeSection === s.id ? palette.sageDark : palette.white,
+      cursor: "pointer",
+      fontSize: 12,
+      fontFamily: "'Helvetica Neue', Arial, sans-serif",
+      fontWeight: activeSection === s.id ? 700 : 400,
+      color: activeSection === s.id ? palette.white : palette.charcoal,
+      transition: "all 0.15s",
+      textAlign: "center",
+      lineHeight: 1.3
+    }
+  }, s.label))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      padding: "20px 16px",
+      maxWidth: 900,
+      margin: "0 auto"
+    }
+  }, activeSection === "formule" && /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 8,
+      marginBottom: 24,
+      flexWrap: "wrap"
+    }
+  }, formules.map(f => /*#__PURE__*/React.createElement("button", {
+    key: f.id,
+    onClick: () => setActiveFormule(f.id),
+    style: {
+      padding: "10px 20px",
+      borderRadius: 6,
+      border: `2px solid ${activeFormule === f.id ? f.color : palette.stone}`,
+      background: activeFormule === f.id ? f.color : palette.white,
+      color: activeFormule === f.id ? palette.white : palette.charcoal,
+      cursor: "pointer",
+      fontSize: 13,
+      fontFamily: "'Helvetica Neue', Arial, sans-serif",
+      fontWeight: 600,
+      transition: "all 0.15s"
+    }
+  }, f.label))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: palette.white,
+      borderRadius: 12,
+      border: `1px solid ${palette.stone}`,
+      overflow: "hidden",
+      marginBottom: 28
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: formule.color,
+      padding: "16px 20px",
+      display: "flex",
+      flexDirection: "column",
+      gap: 12
+    }
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      color: palette.white,
+      fontSize: 18,
+      fontWeight: 700
+    }
+  }, formule.label), /*#__PURE__*/React.createElement("div", {
+    style: {
+      color: "rgba(255,255,255,0.8)",
+      fontSize: 13,
+      fontFamily: "'Helvetica Neue', Arial, sans-serif"
+    }
+  }, formule.subtitle)), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 16,
+      flexWrap: "wrap"
+    }
+  }, [{
+    val: `${formule.score}/10`,
+    label: "Anti-odeur"
+  }, {
+    val: formule.traces,
+    label: "Traces"
+  }, {
+    val: formule.cout,
+    label: "Coût/100g"
+  }].map(s => /*#__PURE__*/React.createElement("div", {
+    key: s.label,
+    style: {
+      textAlign: "center"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      color: palette.white,
+      fontSize: 16,
+      fontWeight: 700
+    }
+  }, s.val), /*#__PURE__*/React.createElement("div", {
+    style: {
+      color: "rgba(255,255,255,0.7)",
+      fontSize: 11,
+      fontFamily: "'Helvetica Neue', Arial, sans-serif"
+    }
+  }, s.label))))), (formule.id === "standard" || formule.id === "menthe" || formule.id === "citrus") && /*#__PURE__*/React.createElement("div", {
+    style: {
+      padding: "8px 0"
+    }
+  }, formule.comparaison && /*#__PURE__*/React.createElement("div", {
+    style: {
+      padding: "16px 20px",
+      borderBottom: `1px solid ${palette.stone}`,
+      background: formule.id === "citrus" ? "#FEF3EA" : "#F0FAF6"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 12,
+      fontWeight: 700,
+      color: formule.id === "citrus" ? "#C8621A" : "#3A9E80",
+      textTransform: "uppercase",
+      letterSpacing: 0.5,
+      marginBottom: 10,
+      fontFamily: "'Helvetica Neue', Arial, sans-serif"
+    }
+  }, "Gains vs formule d'origine"), formule.comparaison.map((row, i) => /*#__PURE__*/React.createElement("div", {
+    key: i,
+    style: {
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+      padding: "5px 0",
+      borderBottom: i < formule.comparaison.length - 1 ? `1px solid #D0EDE5` : "none"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 12,
+      fontFamily: "'Helvetica Neue', Arial, sans-serif",
+      color: palette.charcoal,
+      fontWeight: 600,
+      minWidth: 120
+    }
+  }, row.critere), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 8,
+      alignItems: "center",
+      flexWrap: "wrap"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 11,
+      color: "#999",
+      fontFamily: "'Helvetica Neue', Arial, sans-serif",
+      textDecoration: "line-through"
+    }
+  }, row.original), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 11,
+      color: "#fff",
+      background: formule.id === "citrus" ? "#C8621A" : "#3A9E80",
+      borderRadius: 4,
+      padding: "1px 7px",
+      fontFamily: "'Helvetica Neue', Arial, sans-serif",
+      fontWeight: 600
+    }
+  }, row.optimise))))), formule.details.map((ing, i) => /*#__PURE__*/React.createElement("div", {
+    key: i,
+    style: {
+      padding: "16px 24px",
+      borderBottom: i < formule.details.length - 1 ? `1px solid ${palette.stone}` : "none",
+      display: "grid",
+      gridTemplateColumns: "1fr",
+      gap: 6,
+      alignItems: "start"
+    }
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 14,
+      fontWeight: 600,
+      color: palette.charcoal,
+      display: "flex",
+      alignItems: "center",
+      gap: 8
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      width: 10,
+      height: 10,
+      borderRadius: "50%",
+      background: ing.color,
+      flexShrink: 0,
+      border: `1px solid rgba(0,0,0,0.1)`
+    }
+  }), ing.name)), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("span", {
+    style: {
+      background: ing.color,
+      color: palette.white,
+      borderRadius: 4,
+      padding: "2px 8px",
+      fontSize: 13,
+      fontWeight: 700,
+      fontFamily: "'Helvetica Neue', Arial, sans-serif"
+    }
+  }, ing.quantite)), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 11,
+      color: palette.brownLight,
+      fontFamily: "'Helvetica Neue', Arial, sans-serif",
+      textTransform: "uppercase",
+      letterSpacing: 0.5,
+      paddingTop: 3,
+      fontWeight: 600
+    }
+  }, ing.role), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 12,
+      color: "#555",
+      fontFamily: "'Helvetica Neue', Arial, sans-serif",
+      lineHeight: 1.5
+    }
+  }, ing.justification)))), formule.specifics && /*#__PURE__*/React.createElement("div", {
+    style: {
+      padding: "20px 24px"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 12,
+      color: "#666",
+      fontFamily: "'Helvetica Neue', Arial, sans-serif",
+      marginBottom: 8,
+      fontWeight: 600,
+      textTransform: "uppercase",
+      letterSpacing: 0.5
+    }
+  }, "Modifications par rapport à la formule standard :"), formule.specifics.map((s, i) => /*#__PURE__*/React.createElement("div", {
+    key: i,
+    style: {
+      display: "flex",
+      gap: 10,
+      marginBottom: 10,
+      alignItems: "flex-start"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      width: 20,
+      height: 20,
+      borderRadius: "50%",
+      background: formule.color,
+      color: palette.white,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      fontSize: 11,
+      flexShrink: 0,
+      fontFamily: "'Helvetica Neue', Arial, sans-serif",
+      fontWeight: 700,
+      marginTop: 1
+    }
+  }, i + 1), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 13,
+      color: palette.charcoal,
+      fontFamily: "'Helvetica Neue', Arial, sans-serif",
+      lineHeight: 1.5
+    }
+  }, s))))), (formule.id === "standard" || formule.id === "menthe" || formule.id === "citrus") && /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: palette.white,
+      borderRadius: 12,
+      border: `1px solid ${palette.stone}`,
+      padding: 24
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 14,
+      fontWeight: 700,
+      marginBottom: 16,
+      color: formule.id === "menthe" ? "#3A9E80" : formule.id === "citrus" ? "#C8621A" : palette.sageDark
+    }
+  }, "Composition par phase"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 12,
+      flexWrap: "wrap"
+    }
+  }, (formule.id === "menthe" ? [{
+    label: "Phase grasse (karité + coco)",
+    pct: 42,
+    color: palette.gold
+  }, {
+    label: "Cires (abeille + carnauba)",
+    pct: 10,
+    color: palette.brown
+  }, {
+    label: "Actifs anti-odeur (alun + zinc)",
+    pct: 23,
+    color: palette.blue
+  }, {
+    label: "Absorbants (arrow-root + amidon)",
+    pct: 19,
+    color: "#5BB8A0"
+  }, {
+    label: "HE fraîcheur (~1%)",
+    pct: 6,
+    color: "#3A9E80"
+  }] : formule.id === "citrus" ? [{
+    label: "Phase grasse (karité + cacao + coco)",
+    pct: 50,
+    color: "#8B5E3C"
+  }, {
+    label: "Cires (abeille + carnauba)",
+    pct: 10,
+    color: palette.brown
+  }, {
+    label: "Actifs anti-odeur (alun + zinc)",
+    pct: 25,
+    color: palette.blue
+  }, {
+    label: "Absorbants (arrow-root + amidon)",
+    pct: 15,
+    color: "#A8C840"
+  }, {
+    label: "HE citrus (~1%)",
+    pct: 5,
+    color: "#C8621A"
+  }] : [{
+    label: "Phase grasse (karité + coco)",
+    pct: 40,
+    color: palette.gold
+  }, {
+    label: "Cires (abeille + carnauba)",
+    pct: 10,
+    color: palette.brown
+  }, {
+    label: "Actifs anti-odeur (alun + zinc)",
+    pct: 25,
+    color: palette.blue
+  }, {
+    label: "Absorbants (arrow-root + amidon)",
+    pct: 20,
+    color: palette.sage
+  }, {
+    label: "HE (~1%)",
+    pct: 5,
+    color: palette.sageDark
+  }]).map(phase => /*#__PURE__*/React.createElement("div", {
+    key: phase.label,
+    style: {
+      flex: "1 1 140px"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      height: 6,
+      borderRadius: 3,
+      background: palette.stone,
+      marginBottom: 6,
+      overflow: "hidden"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      height: "100%",
+      width: `${phase.pct * 2}%`,
+      background: phase.color,
+      borderRadius: 3
+    }
+  })), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 11,
+      color: "#666",
+      fontFamily: "'Helvetica Neue', Arial, sans-serif"
+    }
+  }, phase.label), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 12,
+      fontWeight: 700,
+      color: phase.color,
+      fontFamily: "'Helvetica Neue', Arial, sans-serif"
+    }
+  }, phase.pct, "%")))))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: "#FFF8E7",
+      border: `1px solid ${palette.gold}`,
+      borderRadius: 8,
+      padding: "14px 18px",
+      marginTop: 20,
+      display: "flex",
+      gap: 12
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 18
+    }
+  }, "⚠️"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 13,
+      fontFamily: "'Helvetica Neue', Arial, sans-serif",
+      lineHeight: 1.6,
+      color: "#6B4C00"
+    }
+  }, /*#__PURE__*/React.createElement("strong", null, "Bicarbonate de soude : ingrédient controversé."), " Efficace contre les odeurs (neutralisation acides) mais pH très alcalin (pH 9) pouvant provoquer irritations, brûlures et eczéma sous-axillaire chez les peaux sensibles ou post-épilation. La formule proposée le remplace avantageusement par l'oxyde de zinc (pH neutre, même action neutralisante, tolérance supérieure). Ne retenir le bicarbonate que dans la version premium en quantité limitée (3%) et sur peaux testées."))), activeSection === "interactions" && /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 13,
+      color: "#666",
+      fontFamily: "'Helvetica Neue', Arial, sans-serif",
+      marginBottom: 24,
+      lineHeight: 1.6
+    }
+  }, "Comprendre les interactions entre les ingrédients permet d'optimiser les dosages et d'anticiper les comportements en usage. Voici l'analyse scientifique des 5 mécanismes clés de cette formule."), interactions.map((inter, i) => /*#__PURE__*/React.createElement("div", {
+    key: i,
+    style: {
+      background: palette.white,
+      borderRadius: 10,
+      border: `1px solid ${palette.stone}`,
+      borderLeft: `4px solid ${inter.color}`,
+      padding: "20px 24px",
+      marginBottom: 16
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "flex-start",
+      marginBottom: 10
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 15,
+      fontWeight: 700,
+      color: palette.charcoal
+    }
+  }, inter.titre), /*#__PURE__*/React.createElement("span", {
+    style: {
+      background: inter.color,
+      color: palette.white,
+      borderRadius: 20,
+      padding: "2px 10px",
+      fontSize: 11,
+      fontFamily: "'Helvetica Neue', Arial, sans-serif",
+      fontWeight: 600,
+      whiteSpace: "nowrap",
+      marginLeft: 12
+    }
+  }, inter.type)), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 13,
+      fontFamily: "'Helvetica Neue', Arial, sans-serif",
+      lineHeight: 1.7,
+      color: "#444"
+    }
+  }, inter.detail))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: palette.white,
+      borderRadius: 10,
+      border: `1px solid ${palette.stone}`,
+      padding: 24,
+      marginTop: 24
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 15,
+      fontWeight: 700,
+      color: palette.sageDark,
+      marginBottom: 16
+    }
+  }, "Verdict sur les ingrédients évalués"), [{
+    ing: "Cire de soja",
+    verdict: "Non retenu",
+    raison: "Point de fusion trop bas (52–54°C). Formule instable en été. Moins efficace que la cire d'abeille pour structurer. Intéressante uniquement pour version vegan légère.",
+    color: palette.red
+  }, {
+    ing: "Bicarbonate de soude",
+    verdict: "Usage limité",
+    raison: "Efficace mais pH 9 irritant. Remplacé par l'oxyde de zinc (même action, tolérance bien supérieure). Utilisé à 3% max en version premium sur peaux testées seulement.",
+    color: palette.orange
+  }, {
+    ing: "Arrow-root",
+    verdict: "Retenu — prioritaire",
+    raison: "Meilleur absorbant de la liste : grain fin, absorbe les lipides, réduit les traces. Premier choix parmi les amidons.",
+    color: palette.green
+  }, {
+    ing: "Amidon de riz",
+    verdict: "Retenu — complémentaire",
+    raison: "Grain très fin, absorbe l'eau. Effet poudre de riz agréable. Complète l'arrow-root.",
+    color: palette.green
+  }, {
+    ing: "Amidon de maïs",
+    verdict: "Non retenu",
+    raison: "Grain plus grossier que l'arrow-root. Moindre efficacité absorbante, risque de grains perceptibles à l'application. Remplacé avantageusement par l'arrow-root.",
+    color: palette.orange
+  }, {
+    ing: "Cire d'abeille",
+    verdict: "Retenu — indispensable",
+    raison: "Structurant de base irremplaçable. Stabilité thermique, propriétés filmogènes. Aucun substitut à performance équivalente dans cette formule.",
+    color: palette.green
+  }, {
+    ing: "Cire de carnauba",
+    verdict: "Retenu — à 2% seulement",
+    raison: "Durcisseur haute température. Augmente le point de ramollissement de la formule de +8–10°C. Ne pas dépasser 2% sous peine de texture cassante.",
+    color: palette.green
+  }, {
+    ing: "Oxyde de zinc non nano",
+    verdict: "Retenu — actif clé",
+    raison: "Synergie majeure avec la pierre d'alun. Anti-odeur par neutralisation chimique + antibactérien. Tolérance excellente. Ingrédient le plus performant de la liste.",
+    color: palette.green
+  }].map((v, i) => /*#__PURE__*/React.createElement("div", {
+    key: i,
+    style: {
+      display: "flex",
+      flexDirection: "column",
+      gap: 6,
+      padding: "12px 0",
+      borderBottom: i < 7 ? `1px solid ${palette.stone}` : "none",
+      alignItems: "flex-start"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 13,
+      fontWeight: 600,
+      color: palette.charcoal,
+      fontFamily: "'Helvetica Neue', Arial, sans-serif"
+    }
+  }, v.ing), /*#__PURE__*/React.createElement("span", {
+    style: {
+      background: v.color,
+      color: palette.white,
+      borderRadius: 4,
+      padding: "2px 8px",
+      fontSize: 11,
+      fontFamily: "'Helvetica Neue', Arial, sans-serif",
+      fontWeight: 600,
+      alignSelf: "flex-start",
+      display: "inline-block"
+    }
+  }, v.verdict), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 12,
+      color: "#555",
+      fontFamily: "'Helvetica Neue', Arial, sans-serif",
+      lineHeight: 1.5
+    }
+  }, v.raison))))), activeSection === "fabrication" && /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "grid",
+      gridTemplateColumns: "1fr 1fr",
+      gap: 16,
+      marginBottom: 28
+    }
+  }, [{
+    label: "Temps total",
+    val: "45–60 min + 4h refroidissement"
+  }, {
+    label: "Matériel",
+    val: "Bain-marie, fouet, bols pyrex, pots verre"
+  }, {
+    label: "Difficulté",
+    val: "Intermédiaire"
+  }, {
+    label: "Stérilisation",
+    val: "Alcool 70° sur tout le matériel"
+  }].map(info => /*#__PURE__*/React.createElement("div", {
+    key: info.label,
+    style: {
+      background: palette.white,
+      borderRadius: 8,
+      border: `1px solid ${palette.stone}`,
+      padding: "14px 18px",
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 12,
+      color: "#888",
+      fontFamily: "'Helvetica Neue', Arial, sans-serif"
+    }
+  }, info.label), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 13,
+      fontWeight: 600,
+      color: palette.charcoal,
+      fontFamily: "'Helvetica Neue', Arial, sans-serif"
+    }
+  }, info.val)))), etapes.map((etape, i) => /*#__PURE__*/React.createElement("div", {
+    key: i,
+    style: {
+      display: "flex",
+      gap: 20,
+      marginBottom: 16,
+      position: "relative"
+    }
+  }, i < etapes.length - 1 && /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: "absolute",
+      left: 23,
+      top: 52,
+      bottom: -16,
+      width: 2,
+      background: palette.stone
+    }
+  }), /*#__PURE__*/React.createElement("div", {
+    style: {
+      width: 48,
+      height: 48,
+      borderRadius: "50%",
+      background: etape.critical ? palette.sageDark : palette.stone,
+      color: etape.critical ? palette.white : palette.charcoal,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      fontSize: 14,
+      fontWeight: 700,
+      fontFamily: "'Helvetica Neue', Arial, sans-serif",
+      flexShrink: 0,
+      zIndex: 1,
+      border: etape.critical ? `2px solid ${palette.sage}` : "none"
+    }
+  }, etape.num), /*#__PURE__*/React.createElement("div", {
+    style: {
+      flex: 1,
+      background: palette.white,
+      borderRadius: 10,
+      border: `1px solid ${etape.critical ? palette.sage : palette.stone}`,
+      padding: "16px 20px"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      justifyContent: "space-between",
+      marginBottom: 8
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 14,
+      fontWeight: 700,
+      color: etape.critical ? palette.sageDark : palette.charcoal
+    }
+  }, etape.titre, etape.critical && /*#__PURE__*/React.createElement("span", {
+    style: {
+      marginLeft: 10,
+      fontSize: 10,
+      background: palette.sageDark,
+      color: palette.white,
+      borderRadius: 3,
+      padding: "1px 6px",
+      fontFamily: "'Helvetica Neue', Arial, sans-serif",
+      fontWeight: 600,
+      letterSpacing: 0.5,
+      verticalAlign: "middle"
+    }
+  }, "ÉTAPE CRITIQUE")), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 12,
+      color: "#888",
+      fontFamily: "'Helvetica Neue', Arial, sans-serif"
+    }
+  }, "⏱ ", etape.temps)), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 13,
+      fontFamily: "'Helvetica Neue', Arial, sans-serif",
+      lineHeight: 1.7,
+      color: "#444"
+    }
+  }, etape.detail)))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: palette.white,
+      borderRadius: 10,
+      border: `1px solid ${palette.stone}`,
+      padding: 24,
+      marginTop: 8
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 15,
+      fontWeight: 700,
+      color: palette.sageDark,
+      marginBottom: 16
+    }
+  }, "Évaluation du risque de traces sur vêtements"), [{
+    scenario: "Vêtements blancs, application sèche",
+    risque: "Très faible",
+    color: palette.green,
+    detail: "Arrow-root + amidon absorbent l'huile libre. Laisser 3 min avant habillage."
+  }, {
+    scenario: "Vêtements foncés (coton)",
+    risque: "Faible",
+    color: "#7AAB7A",
+    detail: "Possible légère trace blanche due à l'alun si quantité trop importante. Appliquer en couche fine."
+  }, {
+    scenario: "Effort physique intense, transpiration abondante",
+    risque: "Modéré",
+    color: palette.orange,
+    detail: "La transpiration peut remobiliser les corps gras. L'arrow-root tampon ce phénomène jusqu'à un certain point."
+  }, {
+    scenario: "Soie, satin, matières délicates",
+    risque: "Modéré à élevé",
+    color: palette.red,
+    detail: "Ces matières absorbent les huiles même en infime quantité. Attendre 5 min minimum avant habillage."
+  }].map((r, i) => /*#__PURE__*/React.createElement("div", {
+    key: i,
+    style: {
+      display: "flex",
+      flexDirection: "column",
+      gap: 6,
+      padding: "12px 0",
+      borderBottom: i < 3 ? `1px solid ${palette.stone}` : "none",
+      alignItems: "flex-start"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 13,
+      fontFamily: "'Helvetica Neue', Arial, sans-serif",
+      color: palette.charcoal
+    }
+  }, r.scenario), /*#__PURE__*/React.createElement("span", {
+    style: {
+      background: r.color,
+      color: palette.white,
+      borderRadius: 4,
+      padding: "2px 8px",
+      fontSize: 11,
+      fontFamily: "'Helvetica Neue', Arial, sans-serif",
+      fontWeight: 600,
+      display: "inline-block"
+    }
+  }, r.risque), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 12,
+      color: "#666",
+      fontFamily: "'Helvetica Neue', Arial, sans-serif",
+      lineHeight: 1.5
+    }
+  }, r.detail))))), activeSection === "comparatif" && /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 13,
+      color: "#666",
+      fontFamily: "'Helvetica Neue', Arial, sans-serif",
+      marginBottom: 24,
+      lineHeight: 1.6
+    }
+  }, "Positionnement de la formule artisanale face aux meilleures marques de déodorants naturels du marché."), comparatifs.map((m, i) => /*#__PURE__*/React.createElement("div", {
+    key: i,
+    style: {
+      background: m.marque.includes("Ta formule") ? "#F0F7F3" : palette.white,
+      borderRadius: 10,
+      border: `1px solid ${m.marque.includes("Ta formule") ? palette.sage : palette.stone}`,
+      padding: "20px 24px",
+      marginBottom: 14,
+      borderLeft: `4px solid ${m.couleur}`
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      flexDirection: "column",
+      gap: 10,
+      marginBottom: 12
+    }
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 15,
+      fontWeight: 700,
+      color: palette.charcoal,
+      marginBottom: 2
+    }
+  }, m.marque.includes("Ta formule") ? "⭐ " : "", m.marque), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 12,
+      color: "#888",
+      fontFamily: "'Helvetica Neue', Arial, sans-serif"
+    }
+  }, "Actifs : ", m.actifs)), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 20,
+      alignItems: "center"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      textAlign: "left"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 22,
+      fontWeight: 700,
+      color: m.couleur
+    }
+  }, m.score, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 13,
+      color: "#aaa"
+    }
+  }, "/10")), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 11,
+      color: "#aaa",
+      fontFamily: "'Helvetica Neue', Arial, sans-serif"
+    }
+  }, "Efficacité")), /*#__PURE__*/React.createElement("div", {
+    style: {
+      textAlign: "left"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 15,
+      fontWeight: 700,
+      color: palette.charcoal,
+      fontFamily: "'Helvetica Neue', Arial, sans-serif"
+    }
+  }, m.prix), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 11,
+      color: "#aaa",
+      fontFamily: "'Helvetica Neue', Arial, sans-serif"
+    }
+  }, "Coût")))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      height: 6,
+      background: palette.stone,
+      borderRadius: 3,
+      marginBottom: 12,
+      overflow: "hidden"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      height: "100%",
+      width: `${m.score * 10}%`,
+      background: m.couleur,
+      borderRadius: 3,
+      transition: "width 0.5s ease"
+    }
+  })), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 13,
+      fontFamily: "'Helvetica Neue', Arial, sans-serif",
+      color: "#555",
+      lineHeight: 1.5
+    }
+  }, m.points))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: palette.sageDark,
+      borderRadius: 10,
+      padding: 24,
+      marginTop: 8,
+      color: palette.white
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 15,
+      fontWeight: 700,
+      marginBottom: 12
+    }
+  }, "Conclusion de l'analyse"), ["La formule artisanale Zinc + Alun surpasse les références commerciales en score anti-odeur (8.5 vs 7–8/10) tout en éliminant le bicarbonate, principale source d'irritations dans les marques concurrentes.", "Le coût de revient (~10€/100g matières premières) reste inférieur aux prix retail tout en livrant un produit de qualité supérieure.", "L'avantage principal : la double synergie alun + zinc non nano n'est pas exploitée par les marques commerciales grand public — c'est le véritable différenciateur de cette formule.", "Limite : durée de conservation plus courte que l'industriel (3 mois vs 12–24 mois) et nécessité d'une rigueur fabrication pour éviter la contamination."].map((point, i) => /*#__PURE__*/React.createElement("div", {
+    key: i,
+    style: {
+      display: "flex",
+      gap: 10,
+      marginBottom: 10,
+      alignItems: "flex-start"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: palette.sageLight,
+      flexShrink: 0,
+      marginTop: 2
+    }
+  }, "→"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 13,
+      fontFamily: "'Helvetica Neue', Arial, sans-serif",
+      lineHeight: 1.6,
+      color: "rgba(255,255,255,0.85)"
+    }
+  }, point)))))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      borderTop: `1px solid ${palette.stone}`,
+      padding: "16px 16px",
+      display: "flex",
+      flexDirection: "column",
+      gap: 6,
+      alignItems: "flex-start"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 11,
+      color: "#999",
+      fontFamily: "'Helvetica Neue', Arial, sans-serif"
+    }
+  }, "Formulation artisanale — Usage personnel — Respecter les BPF (Bonnes Pratiques de Fabrication)"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 11,
+      color: "#999",
+      fontFamily: "'Helvetica Neue', Arial, sans-serif"
+    }
+  }, "Tester sur petit lot (10g) avant production — Patch test recommandé")));
 }
 
-    const root = ReactDOM.createRoot(document.getElementById("root"));
-    root.render(React.createElement(DeodorantGuide));
+    try {
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      root.render(React.createElement(DeodorantGuide));
+    } catch (err) {
+      var box = document.getElementById("error-box");
+      box.style.display = "block";
+      box.textContent = "Erreur d'exécution : " + err.message + "\n" + (err.stack || "");
+    }
   </script>
 </body>
 </html>
